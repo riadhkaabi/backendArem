@@ -72,7 +72,7 @@ app.get('/getUser/:username/:password' , (req, res) => {
     } );
     app.get('/getRequests' , (req, res) => {
    
-        mysqlConnection.query('SELECT * FROM Request', (err, rows, fields) => {
+        mysqlConnection.query('SELECT * FROM request', (err, rows, fields) => {
         if (!err)
         res.send(rows);
         else
