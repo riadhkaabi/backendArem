@@ -10,7 +10,7 @@ app.use(cors({origin: ['http://localhost:8100','http://localhost']}));
 
 
 //MySQL details
-var mysqlConnection = mysql.createConnection({
+const mysqlConnection = mysql.createPool({
     host: 'remotemysql.com',
     user: 'XWWm1AJsEc',
     password: 'Jc76ALu0zA',
@@ -18,12 +18,7 @@ var mysqlConnection = mysql.createConnection({
     multipleStatements: true
     });
 //Listen on environment port or 5000
-mysqlConnection.connect((err)=> {
-    if(!err)
-    console.log('Connection Established Successfully');
-    else
-    console.log('Connection Failed!'+ JSON.stringify(err,undefined,2));
-    });
+
 
 app.listen(port, () => console.log(`Listening on port ${port}..`));
 
