@@ -82,7 +82,7 @@ app.get('/getUser/:username/:password' , (req, res) => {
 
     app.get('/getTelbyId/:id' , (req, res) => {
    
-            mysqlConnection.query('SELECT tel FROM Request where id=?',[req.params.id], (err, rows, fields) => {
+            mysqlConnection.query('SELECT tel FROM request where id=?',[req.params.id], (err, rows, fields) => {
             if (!err)
             res.send(rows);
             else
@@ -92,7 +92,7 @@ app.get('/getUser/:username/:password' , (req, res) => {
 
     app.post('/updateRequest/:id' , (req, res) => {
    
-                mysqlConnection.query('UPDATE Request SET state=1 where id=?',[req.params.id], (err, rows, fields) => {
+                mysqlConnection.query('UPDATE request SET state=1 where id=?',[req.params.id], (err, rows, fields) => {
                 if (!err)
                 res.send(rows);
                 else
