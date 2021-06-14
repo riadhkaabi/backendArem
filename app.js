@@ -11,10 +11,10 @@ app.use(cors({origin: ['http://localhost:8100','http://localhost']}));
 
 //MySQL details
 var mysqlConnection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'aremproject',
+    host: 'remotemysql.com',
+    user: 'XWWm1AJsEc',
+    password: 'Jc76ALu0zA',
+    database: 'XWWm1AJsEc',
     multipleStatements: true
     });
 //Listen on environment port or 5000
@@ -64,6 +64,10 @@ app.post('/addRequest', (req, res) => {
 
 app.get('/getUser/:username/:password' , (req, res) => {
    
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
     mysqlConnection.query('SELECT * FROM user where username = ? and password = ?',[req.params.username,req.params.password], (err, rows, fields) => {
     if (!err)
     res.send(rows);
