@@ -76,7 +76,7 @@ app.get('/getUser/:username/:password' , (req, res) => {
         if (!err)
         res.send(rows);
         else
-        console.log("not found");
+        console.log("error",error);
         })
         } );
 
