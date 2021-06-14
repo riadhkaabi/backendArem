@@ -64,10 +64,6 @@ app.post('/addRequest', (req, res) => {
 
 app.get('/getUser/:username/:password' , (req, res) => {
    
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
     mysqlConnection.query('SELECT * FROM user where username = ? and password = ?',[req.params.username,req.params.password], (err, rows, fields) => {
     if (!err)
     res.send(rows);
